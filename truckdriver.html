@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Truck Driver — Alberte Díaz</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./style.css?v=3">
+</head>
+
+<body>
+
+<!-- TOPBAR (simple) -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html#home">Alberte Díaz</a>
+
+    <nav class="nav-simple" aria-label="Navigation">
+      <a href="index.html#home" class="nav-link">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO / GAME INFO -->
+  <section class="game-hero">
+    <div class="game-hero-inner">
+
+      <h1 class="game-title">TRUCK DRIVER</h1>
+
+      <div class="game-hero-grid">
+
+        <!-- Cover -->
+        <div class="game-cover-big">
+          <img src="Images/truckdriverpage.png" alt="Truck Driver cover">
+        </div>
+
+        <!-- Info -->
+        <div class="game-meta">
+          <div class="meta-row">
+            <div class="meta-label">ROLE:</div>
+            <div class="meta-value">Bugfixing & Porting Developer</div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-label">Company:</div>
+            <div class="meta-value">SOEDESCO</div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-label">PLATFORM:</div>
+            <div class="meta-value">PC (Steam), PS4, PS5, XBOX One, XBOX Series X|S, Nintendo Switch</div>
+          </div>
+
+          
+        </div>
+
+      </div>
+
+      <!-- Platform Buttons -->
+      <div class="platform-buttons">
+        
+        <a class="platform-btn" href="https://store.steampowered.com/app/768180/Truck_Driver/" target="_blank" rel="noopener">
+          <img src="images/icons/steam.png" alt="">
+          
+        </a>
+        <a class="platform-btn" href="https://store.playstation.com/es-es/product/EP4541-CUSA12209_00-TRUCKDRIVEREU000" target="_blank" rel="noopener">
+          <img src="images/icons/ps4.png" alt="">
+          
+        </a>
+        <a class="platform-btn" href="https://store.playstation.com/es-es/concept/10007558" target="_blank" rel="noopener">
+          <img src="images/icons/ps5.png" alt="">
+          
+        </a>
+        <a class="platform-btn" href="https://www.xbox.com/es-ES/games/store/truck-driver/c2hqvxvvlmkg" target="_blank" rel="noopener">
+          <img src="images/icons/xbox.png" alt="">
+        </a>
+
+<!--        <a class="platform-btn github" href="https://github.com" target="_blank" rel="noopener">-->
+<!--          <img src="images/icons/github.svg" alt="">-->
+<!--          <span>Github Source Code</span>-->
+<!--        </a>-->
+
+        <!-- Añade más si quieres -->
+        <!--
+        <a class="platform-btn steam" href="#" target="_blank" rel="noopener">
+          <img src="images/icons/steam.svg" alt="">
+          <span>Steam Page</span>
+        </a>
+        -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GAMEPLAY -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>GAMEPLAY</h2>
+    </div>
+
+    <div class="video-wrap">
+      <!-- Cambia el ID del vídeo -->
+      <div class="video-wrap">
+        <iframe
+                src="https://www.youtube.com/embed/MEJwZjJ5z6w"
+                title="Gameplay video"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>DESCRIPTION</h2>
+    </div>
+
+    <div class="game-description">
+      <p>
+        Star Spin is a rhythm-focused game where timing and precision are key. The player must...
+      </p>
+      <p>
+        My main goal with this project was to...
+      </p>
+    </div>
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>SCREENSHOTS</h2>
+    </div>
+
+    <div class="shots-grid">
+      <img src="Images/starspin-shot1.gif" alt="Screenshot 1">
+      <img src="Images/starspin-shot2.png" alt="Screenshot 2">
+      <img src="Images/starspin-shot3.png" alt="Screenshot 3">
+      <img src="Images/starspin-shot4.gif" alt="Screenshot 4">
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Alberte Díaz</p>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
