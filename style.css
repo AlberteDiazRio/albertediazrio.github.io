@@ -146,11 +146,10 @@ body{
 .home-text h1{
     font-family: "Syne", system-ui, sans-serif;
     font-size: clamp(3rem, 7vw, 5.2rem);
-    line-height: 1.05;
+    line-height: 1.1;   /* antes 1.02 */
     letter-spacing: -0.03em;
-    white-space: nowrap;
-    margin: 0 auto;
 }
+
 
 .lead{
     margin: 24px auto 0;  /* 🔥 centra visualmente */
@@ -1102,6 +1101,12 @@ body{
     width: 100%;
     aspect-ratio: 16 / 9;
     display: block;
+}
+
+@media (max-width: 600px){
+    .home-text h1{
+        line-height: 1.15;
+    }
 }
 
 
