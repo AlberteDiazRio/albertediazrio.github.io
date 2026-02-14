@@ -1,45 +1,177 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Alberto Díaz - Game Developer</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alberto Díaz — Game Developer</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Nombre (display) + cuerpo (clean) -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="hero">
-    <div class="hero-content">
-        <h1>
-            Alberto Díaz<br>
-            <span>Game Developer</span>
-        </h1>
-        <p>I design and build interactive experiences.</p>
+  <!-- NAVBAR -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#home" aria-label="Ir a Home">
+        Alberto Díaz
+      </a>
+
+      <nav class="nav" aria-label="Navegación principal">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#projects" class="nav-link">My projects</a>
+        <a href="#about" class="nav-link">About Me</a>
+        <a href="#contact" class="nav-link">Contact</a>
+        <a href="resume.pdf" class="nav-link resume" target="_blank" rel="noopener">Resume</a>
+      </nav>
+
+      <button class="menu-btn" aria-label="Abrir menú" aria-expanded="false">
+        ☰
+      </button>
     </div>
-</header>
 
+    <!-- Menú móvil -->
+    <div class="mobile-nav" id="mobileNav" aria-hidden="true">
+      <a href="#home" class="mobile-link">Home</a>
+      <a href="#projects" class="mobile-link">My projects</a>
+      <a href="#about" class="mobile-link">About Me</a>
+      <a href="#contact" class="mobile-link">Contact</a>
+      <a href="resume.pdf" class="mobile-link" target="_blank" rel="noopener">Resume</a>
+    </div>
+  </header>
 
-<section class="projects">
-    <h2>Proyectos</h2>
+  <main>
 
-    <div class="projects-grid">
+    <!-- HOME -->
+    <section class="home" id="home">
+      <div class="home-inner">
+        <div class="home-text">
+          <h1>Game Developer</h1>
 
-        <div class="card">
+          <p class="lead">
+            Over the last 3 years I've been developing projects in Unity and unreal Engine as a game programmer and designer
+            (and sometimes as musician and 3D artist
+          </p>
+
+          <div class="cta-row">
+            <a class="btn primary" href="#projects">Ver proyectos</a>
+            <a class="btn ghost" href="#contact">Contactar</a>
+          </div>
+        </div>
+
+        <div class="home-image" aria-label="Imagen de presentación">
+          <!-- Cambia esta imagen por la tuya -->
+          <img src="images/hero.jpg" alt="Imagen de portada / screenshot de proyecto" />
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+      <div class="section-head">
+        <h2>My projects</h2>
+        <p>Una selección de trabajos. Cambia textos, links e imágenes cuando quieras.</p>
+      </div>
+
+      <div class="project-grid">
+        <article class="card">
+          <div class="card-img">
+            <img src="images/game1.jpg" alt="Proyecto 1" />
+          </div>
+          <div class="card-body">
             <h3>Mi Juego 1</h3>
-            <p>Descripción breve del proyecto.</p>
-        </div>
+            <p>Juego indie en Unity centrado en narrativa y exploración.</p>
+            <div class="card-links">
+              <a href="#" target="_blank" rel="noopener">Trailer</a>
+              <a href="#" target="_blank" rel="noopener">Itch.io</a>
+            </div>
+          </div>
+        </article>
 
-        <div class="card">
+        <article class="card">
+          <div class="card-img">
+            <img src="images/game2.jpg" alt="Proyecto 2" />
+          </div>
+          <div class="card-body">
             <h3>Mi Juego 2</h3>
-            <p>Otro proyecto increíble.</p>
-        </div>
+            <p>Shooter con foco competitivo, mecánicas avanzadas y multijugador.</p>
+            <div class="card-links">
+              <a href="#" target="_blank" rel="noopener">Gameplay</a>
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-    </div>
-</section>
+    <!-- ABOUT -->
+    <section class="section" id="about">
+      <div class="section-head">
+        <h2>About Me</h2>
+        <p>Escribe aquí tu bio: lo que te gusta, herramientas, lo que buscas, etc.</p>
+      </div>
+
+      <div class="about-box">
+        <p>
+          Soy desarrollador de videojuegos con interés en gameplay programming, diseño de sistemas y experiencias interactivas.
+          Trabajo con Unity y Unreal, y me encanta iterar prototipos rápido.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="section-head">
+        <h2>Contact</h2>
+        <p>Déjame tu email o enlaza tu LinkedIn / GitHub.</p>
+      </div>
+
+      <div class="contact-box">
+        <a class="btn primary" href="mailto:tuemail@ejemplo.com">tuemail@ejemplo.com</a>
+        <div class="mini-links">
+          <a href="#" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="#" target="_blank" rel="noopener">GitHub</a>
+          <a href="#" target="_blank" rel="noopener">Itch.io</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>© <span id="year"></span> Alberto Díaz</p>
+    </footer>
+
+  </main>
+
+  <script>
+    // Año automático
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Menú móvil
+    const btn = document.querySelector(".menu-btn");
+    const mobileNav = document.getElementById("mobileNav");
+
+    btn.addEventListener("click", () => {
+      const expanded = btn.getAttribute("aria-expanded") === "true";
+      btn.setAttribute("aria-expanded", String(!expanded));
+
+      mobileNav.classList.toggle("open");
+      mobileNav.setAttribute("aria-hidden", String(expanded));
+    });
+
+    // Cierra menú móvil al clicar un link
+    document.querySelectorAll(".mobile-link").forEach(a => {
+      a.addEventListener("click", () => {
+        btn.setAttribute("aria-expanded", "false");
+        mobileNav.classList.remove("open");
+        mobileNav.setAttribute("aria-hidden", "true");
+      });
+    });
+  </script>
 
 </body>
 </html>
