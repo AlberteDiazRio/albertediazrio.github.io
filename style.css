@@ -202,8 +202,20 @@ body{
 }
 
 
+.home{
+    padding-top: calc(84px + env(safe-area-inset-top)); /* ✅ iOS notch */
+    min-height: 100vh;
+    min-height: 100svh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+}
 
-
+@media (max-width: 600px){
+    .home-inner{
+        padding-top: 170px; /* antes 140px */
+    }
+}
 
 
 
@@ -241,6 +253,8 @@ body{
   transform: translateY(-2px);
   background: rgba(255,255,255,0.08);
 }
+
+
 
 /* Imagen debajo del texto (en la columna derecha) */
 .home-image{
