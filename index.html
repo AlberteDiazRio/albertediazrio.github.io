@@ -848,7 +848,7 @@
 
       const sliceWidth = canvas.width / (waveformData.length - 1);
 
-      // ---- Waveform base ----
+      // ---- Waveform base (no reproducida) ----
       ctx.beginPath();
       waveformData.forEach((v, i) => {
         const x = i * sliceWidth;
@@ -863,7 +863,7 @@
         ctx.lineTo(x, y);
       }
       ctx.closePath();
-      ctx.fillStyle = gradient; // color base
+      ctx.fillStyle = "rgba(108, 99, 255, 0.4)"; // Azul suave, menos brillante
       ctx.fill();
 
       // ---- Parte ya reproducida ----
@@ -883,10 +883,10 @@
         ctx.lineTo(x, y);
       }
       ctx.closePath();
-      ctx.fillStyle = "rgba(255,255,255,0.5)"; // color de progreso
+      ctx.fillStyle = "rgba(255, 105, 180, 0.8)"; // Rosa brillante para lo que se ha reproducido
       ctx.fill();
 
-      // ---- Glow encima ----
+      // ---- Glow encima (efecto brillante) ----
       ctx.beginPath();
       waveformData.forEach((v, i) => {
         const x = i * sliceWidth;
@@ -894,13 +894,14 @@
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       });
-      ctx.strokeStyle = "rgba(255,255,255,0.3)";
+      ctx.strokeStyle = "rgba(255, 105, 180, 0.5)"; // Rosa para el glow
       ctx.lineWidth = 2;
-      ctx.shadowBlur = 8;
-      ctx.shadowColor = "#fff";
+      ctx.shadowBlur = 10;
+      ctx.shadowColor = "rgba(255, 105, 180, 0.7)";
       ctx.stroke();
       ctx.shadowBlur = 0;
     }
+
 
 
     // Cargar waveform
