@@ -388,20 +388,31 @@ body{
 /* Hint overlay */
 .home-game .game-hint{
     position: absolute;
-    left: 14px;
-    bottom: 14px;
-    padding: 10px 12px;
-    border-radius: 14px;
-    background: rgba(0,0,0,0.45);
-    border: 1px solid rgba(255,255,255,0.12);
-    color: rgba(255,255,255,0.85);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    padding: 14px 20px;
+    border-radius: 18px;
+
+    background: rgba(0,0,0,0.55);
+    border: 1px solid rgba(255,255,255,0.14);
+
+    color: rgba(255,255,255,0.9);
     font-weight: 700;
-    font-size: 0.95rem;
-    backdrop-filter: blur(10px);
+    font-size: 1.05rem;
+
+    backdrop-filter: blur(12px);
+
     user-select: none;
     pointer-events: none;
+
+    text-align: center;
+    white-space: nowrap;
+
     transition: opacity 0.2s ease;
 }
+
 
 /* Botón salir (solo visible en juego) */
 .home-game .game-exit{
@@ -436,7 +447,10 @@ body{
 
 .home-game.is-playing .game-hint{
     opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
+
 
 .home-game.is-playing .game-exit{
     display: inline-flex;
@@ -451,3 +465,46 @@ body{
         padding: 8px 10px;
     }
 }
+.home-game .game-hint{
+    animation: pulse 1.6s infinite ease-in-out;
+}
+
+@keyframes pulse{
+    0%,100% { opacity: 0.9; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 0.6; transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Texto superior mientras se juega */
+.home-game .game-jump-hint{
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    padding: 8px 14px;
+    border-radius: 14px;
+    background: rgba(0,0,0,0.45);
+    border: 1px solid rgba(255,255,255,0.12);
+
+    color: rgba(255,255,255,0.9);
+    font-weight: 700;
+    font-size: 0.95rem;
+
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+/* Visible solo cuando se está jugando */
+.home-game.is-playing .game-jump-hint{
+    opacity: 1;
+}
+
+/* Si está en game over, lo ocultamos */
+.home-game.is-playing.game-over .game-jump-hint{
+    opacity: 0;
+}
+
+

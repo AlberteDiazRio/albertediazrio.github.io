@@ -80,9 +80,10 @@
 
         <!-- Canvas (oculto hasta click) -->
         <canvas id="homeCanvas"></canvas>
+        <div class="game-jump-hint">Click / Tap to Jump</div>
 
         <!-- Overlay hint -->
-        <div class="game-hint" id="gameHint">Tap / Click to play · Tap / Click to jump</div>
+        <div class="game-hint" id="gameHint">Click to Play Minigame</div>
 
         <!-- Botón para salir del juego -->
         <button class="game-exit" id="gameExit" type="button" aria-label="Exit game">✕</button>
@@ -347,7 +348,21 @@
       score: 0,
       best: 0,
       over: false,
-      dino: { x: 90, y: 0, vy: 0, w: 44, h: 52, onGround: true },
+      dino: {
+        x: 90,
+        y: 0,
+        vy: 0,
+        w: 52,
+        h: 60,
+        onGround: true,
+
+        // hitbox real (más pequeño)
+        hitOffsetX: 8,
+        hitOffsetY: 6,
+        hitW: 36,
+        hitH: 48
+      },
+
       obs: [],
       frame: 0,
       nextGap: randGap(),   // ✅ NUEVO
@@ -391,26 +406,37 @@
 
     function spawnObstacle() {
       const rect = wrap.getBoundingClientRect();
-
-      const w = 46;   // tamaño del cactus (ajusta al png)
-      const h = 56;
+      const h = 34 + Math.random() * 34;
+      const w = 22 + Math.random() * 20;
 
       state.obs.push({
-        x: rect.width + 40,
+        x: rect.width + 10,
         y: state.groundY - h,
         w, h
       });
     }
 
 
+
     function hit(a, b) {
+      const ax = a.x + a.hitOffsetX;
+      const ay = a.y + a.hitOffsetY;
+
+      const bx = b.x + (b.hitX || 0);
+      const bw = b.hitW || b.w;
+      const bh = b.hitH || b.h;
+
       return (
-              a.x < b.x + b.w &&
-              a.x + a.w > b.x &&
-              a.y < b.y + b.h &&
-              a.y + a.h > b.y
+              ax < bx + bw &&
+              ax + a.hitW > bx &&
+              ay < b.y + bh &&
+              ay + a.hitH > b.y
       );
     }
+
+
+
+
 
     function jump() {
       if (!playing || state.over) return;
@@ -423,8 +449,9 @@
     function gameOver() {
       state.over = true;
       state.best = Math.max(state.best, Math.floor(state.score));
-      // ✅ No paramos RAF: el juego queda “congelado” porque update no se ejecuta
+      wrap.classList.add("game-over");   // 👈 añade esto
     }
+
 
     function update() {
       const rect = wrap.getBoundingClientRect();
@@ -503,6 +530,19 @@
           ctx.fillStyle = "rgba(255,255,255,0.75)";
           ctx.fillRect(o.x, o.y, o.w, o.h);
         }
+        // ctx.strokeStyle = "red";
+        // ctx.lineWidth = 2;
+        // ctx.strokeRect(o.x, o.y, o.w, o.h);
+        //
+        // // DEBUG: collider del dino
+        // const ax = state.dino.x + state.dino.hitOffsetX;
+        // const ay = state.dino.y + state.dino.hitOffsetY;
+        //
+        // ctx.strokeStyle = "lime";
+        // ctx.lineWidth = 2;
+        // ctx.strokeRect(ax, ay, state.dino.hitW, state.dino.hitH);
+
+
       }
 
       // Dino
