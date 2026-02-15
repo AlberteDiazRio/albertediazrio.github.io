@@ -846,28 +846,9 @@
     function drawWave(progress = 0) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      ctx.beginPath();
       const sliceWidth = canvas.width / (waveformData.length - 1);
-      waveformData.forEach((v, i) => {
-        const x = i * sliceWidth;
-        const y = canvas.height / 2 - v * canvas.height / 2; // parte superior
-        if (i === 0) ctx.moveTo(x, y);
-        else ctx.lineTo(x, y);
-      });
 
-      // Parte inferior (reflejo invertido)
-      for (let i = waveformData.length - 1; i >= 0; i--) {
-        const v = waveformData[i];
-        const x = i * sliceWidth;
-        const y = canvas.height / 2 + v * canvas.height / 2; // parte inferior
-        ctx.lineTo(x, y);
-      }
-
-      ctx.closePath();
-      ctx.fillStyle = gradient;
-      ctx.fill();
-
-      // Glow que sigue el progreso
+      // ---- Waveform base ----
       ctx.beginPath();
       waveformData.forEach((v, i) => {
         const x = i * sliceWidth;
@@ -875,13 +856,52 @@
         if (i === 0) ctx.moveTo(x, y);
         else ctx.lineTo(x, y);
       });
-      ctx.strokeStyle = "rgba(255,255,255,0.5)";
+      for (let i = waveformData.length - 1; i >= 0; i--) {
+        const v = waveformData[i];
+        const x = i * sliceWidth;
+        const y = canvas.height / 2 + v * canvas.height / 2;
+        ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = gradient; // color base
+      ctx.fill();
+
+      // ---- Parte ya reproducida ----
+      const progressIndex = Math.floor(progress * waveformData.length);
+      ctx.beginPath();
+      for (let i = 0; i <= progressIndex; i++) {
+        const v = waveformData[i];
+        const x = i * sliceWidth;
+        const y = canvas.height / 2 - v * canvas.height / 2;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      }
+      for (let i = progressIndex; i >= 0; i--) {
+        const v = waveformData[i];
+        const x = i * sliceWidth;
+        const y = canvas.height / 2 + v * canvas.height / 2;
+        ctx.lineTo(x, y);
+      }
+      ctx.closePath();
+      ctx.fillStyle = "rgba(255,255,255,0.5)"; // color de progreso
+      ctx.fill();
+
+      // ---- Glow encima ----
+      ctx.beginPath();
+      waveformData.forEach((v, i) => {
+        const x = i * sliceWidth;
+        const y = canvas.height / 2 - v * canvas.height / 2;
+        if (i === 0) ctx.moveTo(x, y);
+        else ctx.lineTo(x, y);
+      });
+      ctx.strokeStyle = "rgba(255,255,255,0.3)";
       ctx.lineWidth = 2;
       ctx.shadowBlur = 8;
       ctx.shadowColor = "#fff";
       ctx.stroke();
       ctx.shadowBlur = 0;
     }
+
 
     // Cargar waveform
     function loadWaveform() {
