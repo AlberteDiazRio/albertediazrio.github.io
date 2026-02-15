@@ -23,7 +23,7 @@ body{
   --accent: #6c63ff;
   --card: rgba(255,255,255,0.05);
   --stroke: rgba(255,255,255,0.10);
-    --topbar-h: 10px; /* ajusta si tu topbar es más alta */
+    --topbar-h: 20px; /* ajusta si tu topbar es más alta */
 
 
 }
