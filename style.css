@@ -1143,16 +1143,16 @@ body{
         line-height: 1.15;
     }
 }
-/* ✅ iOS fix: Home title not hidden by fixed topbar */
 @media (max-width: 600px){
     .home{
-        align-items: flex-start; /* 🔥 key: no vertical centering */
+        align-items: flex-start;
     }
 
     .home-inner{
-        padding-top: calc(40px + env(safe-area-inset-top)); /* extra breathing room */
+        padding-top: calc(80px + env(safe-area-inset-top));
     }
 }
+
 
 
 
