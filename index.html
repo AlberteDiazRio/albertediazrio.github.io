@@ -853,6 +853,13 @@
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
+    function resizeWaveCanvas(){
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      drawWave(audio.currentTime / audio.duration || 0);
+    }
+    window.addEventListener("resize", resizeWaveCanvas);
+
     // Crear gradiente
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
     gradient.addColorStop(0, "#ff9a9e");
