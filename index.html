@@ -853,14 +853,6 @@
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    function resizeWaveCanvas(){
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = Math.floor(rect.width);
-      canvas.height = Math.floor(rect.height);
-      drawWave(audio.currentTime / audio.duration || 0);
-    }
-    window.addEventListener("resize", resizeWaveCanvas);
-
     // Crear gradiente
     const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
     gradient.addColorStop(0, "#ff9a9e");
@@ -998,7 +990,103 @@
 
 
 </script>
+<!--<script>-->
+<!--  document.addEventListener("DOMContentLoaded", () => {-->
+<!--    const tracks = document.querySelectorAll(".music-track");-->
+<!--    let currentTrack = null;-->
 
+<!--    tracks.forEach(track => {-->
+<!--      const audio = track.querySelector("audio");-->
+<!--      const playBtn = track.querySelector(".play-btn");-->
+<!--      const timeSpan = track.querySelector(".time");-->
+<!--      const canvas = track.querySelector(".waveform");-->
+<!--      const ctx = canvas.getContext("2d");-->
+
+<!--      let animationId;-->
+<!--      let audioContext = new (window.AudioContext || window.webkitAudioContext)();-->
+<!--      let analyser = audioContext.createAnalyser();-->
+<!--      let source = audioContext.createMediaElementSource(audio);-->
+
+<!--      source.connect(analyser);-->
+<!--      analyser.connect(audioContext.destination);-->
+
+<!--      analyser.fftSize = 128;-->
+<!--      const bufferLength = analyser.frequencyBinCount;-->
+<!--      const dataArray = new Uint8Array(bufferLength);-->
+
+<!--      // Control de volumen: establecer volumen por defecto-->
+<!--      audio.volume = 0.5; // Volumen por defecto al 50%-->
+
+<!--      function resizeCanvas() {-->
+<!--        canvas.width = canvas.offsetWidth;-->
+<!--        canvas.height = canvas.offsetHeight;-->
+<!--      }-->
+
+<!--      resizeCanvas();-->
+<!--      window.addEventListener("resize", resizeCanvas);-->
+
+<!--      function draw() {-->
+<!--        animationId = requestAnimationFrame(draw);-->
+
+<!--        analyser.getByteFrequencyData(dataArray);-->
+
+<!--        ctx.clearRect(0, 0, canvas.width, canvas.height);-->
+
+<!--        const barWidth = canvas.width / bufferLength;-->
+<!--        let x = 0;-->
+
+<!--        for (let i = 0; i < bufferLength; i++) {-->
+<!--          const barHeight = (dataArray[i] / 255) * canvas.height;-->
+
+<!--          ctx.fillStyle = "#6c63ff";-->
+
+<!--          ctx.fillRect(-->
+<!--                  x,-->
+<!--                  canvas.height - barHeight,-->
+<!--                  barWidth * 0.8,-->
+<!--                  barHeight-->
+<!--          );-->
+
+<!--          x += barWidth;-->
+<!--        }-->
+<!--      }-->
+
+<!--      playBtn.addEventListener("click", async () => {-->
+<!--        if (audioContext.state === "suspended") {-->
+<!--          await audioContext.resume();-->
+<!--        }-->
+
+<!--        // Si hay otro track sonando → pararlo-->
+<!--        if (currentTrack && currentTrack !== audio) {-->
+<!--          currentTrack.pause();-->
+<!--          document.querySelectorAll(".play-btn").forEach(btn => btn.textContent = "▶");-->
+<!--        }-->
+
+<!--        if (audio.paused) {-->
+<!--          audio.play();-->
+<!--          playBtn.textContent = "❚❚";-->
+<!--          draw();-->
+<!--          currentTrack = audio;-->
+<!--        } else {-->
+<!--          audio.pause();-->
+<!--          playBtn.textContent = "▶";-->
+<!--          cancelAnimationFrame(animationId);-->
+<!--        }-->
+<!--      });-->
+
+<!--      audio.addEventListener("ended", () => {-->
+<!--        playBtn.textContent = "▶";-->
+<!--        cancelAnimationFrame(animationId);-->
+<!--      });-->
+
+<!--      // Aquí puedes agregar el control del volumen, ajustarlo según lo desees-->
+<!--      // Ejemplo: reducir el volumen cuando se empieza a reproducir-->
+<!--      audio.volume = 0.2; // Reduces el volumen al 20% cuando comienza a reproducirse-->
+<!--    });-->
+<!--  });-->
+
+
+<!--</script>-->
 
 </body>
 </html>
