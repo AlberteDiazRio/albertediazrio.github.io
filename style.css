@@ -1626,6 +1626,134 @@ body{
     font-size: 1.2rem; /* Ajusta el tamaño del texto si es necesario */
 }
 
+/* ===========================
+   MOBILE RESPONSIVE PATCH
+   Pega esto AL FINAL del CSS
+   =========================== */
+
+/* 1) Asegura que nada fuerce scroll horizontal */
+html, body { width: 100%; }
+img, video, canvas { max-width: 100%; height: auto; }
+* { min-width: 0; } /* clave para grids/flex en móvil */
+
+/* 2) Topbar: altura real + padding correcto (tu topbar tiene padding 14px) */
+:root{
+    /* Ajusta si quieres: 56 suele encajar mejor que 40 con tu padding */
+    --topbar-h: 56px;
+}
+
+/* 3) HOME: botones responsive (wrap) */
+.cta-row{
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Evita que “CV + icon” rompa en líneas raras */
+.btn{
+    white-space: nowrap;
+}
+
+/* 4) HOME image/canvas: altura fluida en móvil (tu img tenía height fija) */
+.home-image img{
+    height: auto;              /* quita la altura fija */
+    aspect-ratio: 16 / 10;     /* mantiene look sin deformar */
+    object-fit: cover;
+}
+
+/* 5) Projects grid: que no dependa de 320px fijos */
+.games-grid{
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    padding: 0;
+}
+
+/* 6) Platform icons: un pelín más pequeños en móvil */
+.platform-icon{
+    width: 22px;
+    height: 22px;
+}
+
+/* 7) ABOUT: columna izquierda flexible (tu grid tenía 420px fijo) */
+.about-layout{
+    grid-template-columns: minmax(0, 420px) minmax(0, 1fr);
+}
+
+/* 8) CONTACT: tu email box tiene min-width:320px (en móviles pequeños rompe) */
+.contact-email-box{
+    min-width: 0;
+    width: min(520px, 100%);
+    padding: 18px 18px;
+}
+
+/* Tel/email largos: permite cortar / saltar línea */
+.contact-email-box h3{
+    overflow-wrap: anywhere;
+    word-break: break-word;
+}
+
+/* 9) Music player: canvas con ancho flexible (había un width:300px) */
+.waveform{
+    width: 100%;
+}
+
+/* ============ Breakpoints ============ */
+
+/* Tablets y abajo */
+@media (max-width: 950px){
+    /* Tu regla ponía padding-top:46 (demasiado poco con topbar fija) */
+    .home-inner{
+        padding-top: calc(var(--topbar-h) + env(safe-area-inset-top) + 60px);
+    }
+}
+
+/* Móvil */
+@media (max-width: 600px){
+
+    /* HOME: más aire arriba y tipografías cómodas */
+    .home-inner{
+        padding-left: 16px;
+        padding-right: 16px;
+        gap: 22px;
+    }
+
+    .lead{
+        font-size: 1.05rem;
+    }
+
+    /* Botones en “píldoras” que ocupen bien el ancho */
+    .cta-row{
+        gap: 10px;
+    }
+    .cta-row .btn{
+        flex: 1 1 auto;
+    }
+
+    /* Projects: 1 columna */
+    .games-grid{
+        grid-template-columns: 1fr;
+    }
+
+    /* Cards: evita escalado enorme en hover (en móvil se siente “saltona”) */
+    .game-card:hover{
+        transform: none;
+    }
+
+    /* ABOUT: 1 columna */
+    .about-layout{
+        grid-template-columns: 1fr;
+    }
+
+    /* Music player: apila si hace falta */
+    .custom-player{
+        flex-wrap: wrap;
+        border-radius: 22px;
+        gap: 12px;
+    }
+    .time{
+        min-width: 0;
+    }
+}
+
 
 
 
