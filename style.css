@@ -1397,8 +1397,136 @@ body{
 }
 
 /* =========================================================
-   MUSIC — Custom Waveform Player
+   MUSIC — Custom Waveform Player (LIMPIO + responsive)
    ========================================================= */
+
+/* lista centrada en desktop, full-width en móvil */
+.music-list{
+    margin-top: 50px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    gap: 34px;
+}
+
+/* card */
+.music-track{
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 20px;
+    padding: 22px 26px;
+    backdrop-filter: blur(12px);
+    box-shadow: 0 18px 60px rgba(0,0,0,0.35);
+    transition: transform 0.25s ease, background 0.25s ease, border 0.25s ease, box-shadow 0.25s ease;
+}
+
+.music-track:hover{
+    transform: translateY(-6px);
+    background: rgba(255,255,255,0.06);
+    border-color: rgba(108,99,255,0.45);
+    box-shadow: 0 26px 80px rgba(0,0,0,0.45);
+}
+
+.music-track h3{
+    font-family: "Syne", system-ui, sans-serif;
+    font-size: 1.2rem;
+    margin-bottom: 16px;
+    letter-spacing: 0.03em;
+}
+
+/* player */
+.custom-player{
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    background: rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.10);
+    border-radius: 40px;
+    padding: 14px 18px;
+
+    backdrop-filter: blur(10px);
+
+    /* CLAVES anti-corte en flex */
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.play-btn{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    background: rgba(108,99,255,0.95);
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: transform 0.2s ease, background 0.2s ease;
+    flex: 0 0 auto; /* no se encoge */
+}
+
+.play-btn:hover{
+    transform: scale(1.08);
+    background: rgba(108,99,255,1);
+}
+
+/* 👇 IMPORTANTE: NUNCA width fijo aquí */
+.waveform{
+    flex: 1 1 auto;
+    min-width: 0;     /* permite encoger sin desbordar */
+    height: 60px;
+    width: 100%;
+    max-width: 100%;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.05);
+    display: block;
+    cursor: pointer;
+}
+
+.time{
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+    flex: 0 0 auto;
+    min-width: 70px;
+    text-align: right;
+    font-family: monospace;
+}
+
+/* Responsive móvil */
+@media (max-width: 600px){
+    /* usa todo el ancho del section */
+    .music-list{
+        max-width: 100%;
+    }
+
+    .music-track{
+        padding: 18px 18px;
+    }
+
+    .custom-player{
+        gap: 12px;
+        padding: 12px 12px;
+        border-radius: 26px;
+    }
+
+    .play-btn{
+        width: 44px;
+        height: 44px;
+    }
+
+    .waveform{
+        height: 54px;
+    }
+
+    .time{
+        min-width: 64px;
+        font-size: 0.85rem;
+    }
+}
 
 .music-list{
     margin-top: 50px;
@@ -1624,7 +1752,33 @@ body{
     margin: 0 auto;
     color: var(--muted); /* Puedes ajustar el color si lo deseas */
     font-size: 1.2rem; /* Ajusta el tamaño del texto si es necesario */
-}
+
+
+    /* =========================================================
+       FIX NAVBAR MÓVIL — evita que el botón ☰ se corte
+       ========================================================= */
+
+    @media (max-width: 600px){
+        .topbar-inner{
+            padding: 12px 14px;   /* menos padding lateral */
+            gap: 12px;
+            max-width: 100%;
+        }
+
+        /* permite que el nombre se recorte con ... en vez de empujar el botón fuera */
+        .brand{
+            min-width: 0;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            font-size: 1.1rem;
+        }
+
+        .menu-btn{
+            margin-left: auto;
+            flex: 0 0 auto;
+        }
+    }
 
 
 
