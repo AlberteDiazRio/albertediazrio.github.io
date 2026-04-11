@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head >
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dreadbone — Alberte Díaz</title>
+  <link rel="icon" href="images/favicon.png" sizes="any">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./style.css?v=3">
+</head>
+
+<body class="page-game">
+
+<!-- TOPBAR (simple) -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html#home">Alberte Díaz</a>
+
+    <nav class="nav-simple" aria-label="Navigation">
+      <a href="index.html#home" class="nav-link">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO / GAME INFO -->
+  <section class="game-hero">
+    <div class="game-hero-inner">
+
+      <h1 class="game-title">Dytective</h1>
+
+      <div class="game-hero-grid">
+
+        <!-- Cover -->
+        <div class="game-cover-big">
+          <img src="Images/Dytective.jpg" alt="Dytective cover">
+        </div>
+
+        <!-- Info -->
+        <div class="game-meta">
+          <div class="meta-row">
+            <div class="meta-label">ROLE:</div>
+            <div class="meta-value">Fullstack Videogame Programmer & Designer</div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-label">COMPANY:</div>
+            <div class="meta-value">Change Dyslexia</div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-label">PLATFORM:</div>
+            <div class="meta-value">Web, Android & iOS</div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-label">GAME ENGINE:</div>
+            <div class="meta-value">Unity Engine</div>
+          </div>
+
+          
+        </div>
+
+      </div>
+
+      <!-- Platform Buttons -->
+      <div class="platform-buttons">
+        
+        <a class="platform-btn" href="https://www.changedyslexia.org" target="_blank" rel="noopener">
+          <img src="images/icons/link.png" alt="">
+          
+        </a>
+        
+
+<!--        <a class="platform-btn github" href="https://github.com" target="_blank" rel="noopener">-->
+<!--          <img src="images/icons/github.svg" alt="">-->
+<!--          <span>Github Source Code</span>-->
+<!--        </a>-->
+
+        <!-- Añade más si quieres -->
+        <!--
+        <a class="platform-btn steam" href="#" target="_blank" rel="noopener">
+          <img src="images/icons/steam.svg" alt="">
+          <span>Steam Page</span>
+        </a>
+        -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GAMEPLAY -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>DEMO & GAMEPLAY</h2>
+    </div>
+
+    <div class="video-wrap">
+      <!-- Cambia el ID del vídeo -->
+      <div class="video-wrap">
+        <iframe
+                src="https://youtube.com/embed/O0TplFLLj6s?si=yJyHwbQji1v8NeSh"
+                title="DytectiveU Demo"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>DESCRIPTION</h2>
+    </div>
+
+    <div class="game-description">
+
+      <p><strong>Dytective</strong> is an app that uses interactive games to help detect and support dyslexia. </p>
+
+      <p>It analyzes users’ performance through AI-driven cognitive exercises to assess reading-related skills and provide personalized training.</p>
+
+      <p>It combines scientific research and gamified design to create engaging, accessible tools for early detection and intervention.</p>
+
+      <p><strong>My role in the project</strong> was Fullstack Videogame Programmer and Designer. I developed a newer version of Dytective app that will be published soon</p>
+
+      <p>I programmed main game mechanics and designed interactive educational experiences and minigames, optimizing gameplay and UX. I also implemented automatic testing and some tools that make the development way faster and eficient</p>
+
+    </div>
+
+
+  </section>
+
+  <!-- SCREENSHOTS -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>SCREENSHOTS</h2>
+    </div>
+
+    <div class="shots-grid">
+      <img src="images/dytective3.png" alt="Screenshot 1">
+      <img src="images/dytective4.png" alt="Screenshot 2">
+      <img src="images/dytective1.png" alt="Screenshot 3">
+      
+
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Alberte Díaz</p>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
