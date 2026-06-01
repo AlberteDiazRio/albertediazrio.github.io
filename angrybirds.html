@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angry Birds Dream Blast — Alberte Díaz</title>
+  <link rel="icon" href="images/favicon.png" sizes="any">
+  <link rel="apple-touch-icon" href="images/favicon.png">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="./style.css?v=3">
+</head>
+
+<body class="page-game">
+
+<!-- TOPBAR (simple) -->
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html#home">Alberte Díaz</a>
+
+    <nav class="nav-simple" aria-label="Navigation">
+      <a href="index.html#home" class="nav-link">Home</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO / GAME INFO -->
+  <section class="game-hero">
+    <div class="game-hero-inner">
+
+      <h1 class="game-title">Angry Birds Dream Blast</h1>
+
+      <div class="game-hero-grid">
+
+        <!-- Cover -->
+        <div class="game-cover-big">
+          <img src="Images/angrybirds.png" alt="Angry Birds Dreamblast cover">
+        </div>
+
+        <!-- Info -->
+        <div class="game-meta">
+          <div class="meta-row">
+            <div class="meta-label">ROLE:</div>
+            <div class="meta-value">Functionality QA Technician</div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-label">Game Studio:</div>
+            <div class="meta-value">Rovio</div>
+          </div>
+
+          <div class="meta-row">
+            <div class="meta-label">PLATFORM:</div>
+            <div class="meta-value">Android & IOs</div>
+          </div>
+          
+
+          
+        </div>
+
+      </div>
+
+      <!-- Platform Buttons -->
+      <div class="platform-buttons">
+        
+        <a class="platform-btn" href="https://www.angrybirds.com/games/angry-birds-dream-blast/" target="_blank" rel="noopener">
+          <img src="images/icons/mobile.png" alt="">
+          
+        </a>
+        
+
+<!--        <a class="platform-btn github" href="https://github.com" target="_blank" rel="noopener">-->
+<!--          <img src="images/icons/github.svg" alt="">-->
+<!--          <span>Github Source Code</span>-->
+<!--        </a>-->
+
+        <!-- Añade más si quieres -->
+        <!--
+        <a class="platform-btn steam" href="#" target="_blank" rel="noopener">
+          <img src="images/icons/steam.svg" alt="">
+          <span>Steam Page</span>
+        </a>
+        -->
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GAMEPLAY -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>GAMEPLAY</h2>
+    </div>
+
+    <div class="video-wrap">
+      <!-- Cambia el ID del vídeo -->
+      <div class="video-wrap">
+        <iframe
+                src="https://www.youtube.com/embed/MtqIznkI88o"
+                title="Angry Birds Dreamblast Trailer"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen>
+        </iframe>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="section game-section">
+    <div class="section-head centered">
+      <h2>DESCRIPTION</h2>
+    </div>
+
+    <div class="game-description">
+
+      <p><strong>Angry Birds Dream Blast</strong> is a puzzle game where players match and combine colorful Dream Bubbles to solve challenging levels and progress through a whimsical world inspired by the Angry Birds universe.</p>
+
+      <p>The gameplay focuses on strategic bubble matching, chain reactions, and the use of unique boosters and objectives. As players advance, new mechanics and level elements are introduced, creating increasingly engaging and varied challenges.</p>
+
+      <p><strong>My role in the project</strong> was as a <strong>Functionality QA Technician</strong>. I tested gameplay mechanics, UI flows, progression systems, and game features to ensure a polished player experience. My responsibilities included identifying, reproducing, and documenting defects while providing detailed reports to the development team.</p>
+
+      <p>I also performed regression testing, validated bug fixes, and verified that new features functioned correctly across different scenarios. Through close collaboration with developers and other team members, I contributed to maintaining a stable, high-quality experience for players.</p>
+
+    </div>
+
+
+
+
+  </section>
+
+  
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Alberte Díaz</p>
+  </footer>
+
+</main>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
